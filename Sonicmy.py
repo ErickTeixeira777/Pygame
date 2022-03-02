@@ -5,14 +5,14 @@ from sys import exit
 
 pygame.init()
 
-largura = 640
-altura = 480
+
+tela = pygame.display.set_mode((1000, 500))
+bg_img = pygame.image.load('fundo2.png')
+bg = pygame.transform.scale(bg_img, (1100, 500))
+
+width = 1000
+i = 0
 BRANCO = (255,255,255)
-
-
-
-tela = pygame.display.set_mode((largura, altura))
-pygame.display.set_caption('Sprites')
 
 class Sonic(pygame.sprite.Sprite):
     def __init__(self):
@@ -52,8 +52,9 @@ class Sonic(pygame.sprite.Sprite):
         self.image = pygame.transform.scale(self.image, (128, 64))
 
         self.rect = self.image.get_rect()
-        self.rect.topleft = 100, 100
+        self.rect.topleft = 50, 100
 
+        
         self.animar = False
 
     def atacar(self):   
@@ -74,6 +75,7 @@ todas_as_sprites.add(sonic)
 
 relogio = pygame.time.Clock()
 
+
 while True:
     
     relogio.tick()
@@ -88,3 +90,5 @@ while True:
     todas_as_sprites.draw(tela)
     todas_as_sprites.update()            
     pygame.display.flip()
+
+    
